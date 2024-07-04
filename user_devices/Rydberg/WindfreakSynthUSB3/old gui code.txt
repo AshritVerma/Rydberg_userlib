@@ -1,0 +1,130 @@
+
+from blacs.device_base_class import DeviceTab, define_state
+from qtutils.qt.QtCore import*
+from qtutils.qt.QtGui import *
+from qtutils.qt.QtWidgets import *
+from PyQt5.QtWidgets import QGridLayout, QLabel
+
+class WindfreakSynthUSB3Tab(DeviceTab):
+    def initialise_GUI(self):
+        #return super().initialise_GUI()
+        """
+        Initializes the GUI tab for the windfreak
+        """
+
+        #pull layout of tab so can place widgets in it
+        layout = self.get_tab_layout
+
+        # get props from cxn table
+        device = self.settings['connection_table'].find_by_name(self.device_name)
+
+        self.com_port = device.properties['com_port']
+        #self.baud_rate = device.properties['baud_rate']
+        #self.device_id = device.properties['device_ID']
+        #self.RS_232 = device.properties['RS_232']
+
+        # what does this do?
+        label_w = 150
+        label_h = 25
+
+        # make space for error messages
+        error_row = QGridLayout()
+        error_message = QLabel()
+        error_message.setTest("Error message")
+        error_message.setAlignment(Qt.AlignLeft)
+        error_row.addWidget(error_message, 0,0)
+
+        """
+        self.Windfreak_error_message_contents = QLabel()
+        self.Windfreak_error_message_contents.setText("No Error")
+        self.Windfreak_error_message_contents.setAlignment(Qt.AlignLeft)
+        error_row.addWidget(self.Windfreak_error_message_contents, 0, 1)
+        """
+        layout.addLayout(error_row)
+
+        #for each channel, make a new row to put the label, editable textbox, and button to send the contents of the text box
+        cur_row = QGridLayout()
+
+        #freq txtbk and label
+        freq_label = QLabel()
+        freq_label.setText("Gated Sine Freq (Hz)")
+        freq_label.setAlignment(Qt.AlignLeft)
+        cur_row.addWidget(freq_label, 0, 0)
+
+        #self.fre
+
+        layout.addLayout(cur_row)
+
+        # we add the buttons to a button group so that we can determine which button was pressed
+        self.btn_grp = QButtonGroup()
+        self.btn_grp.setExclusive(True)
+        for button in self.button.values():
+            self.btn_grp.addButton(button)
+
+        # when one of the buttons in the button group is pressed, execute on_click method (below)
+        self.btn_grp.buttonClicked.connect(self.on_click)
+
+    def initialise_workers(self):
+        connection_table = self.settings['connection_table']
+        device = connection_table.find_by_name(self.device_name)
+       
+        self.com_port = device.properties['com_port']
+
+        # Create and set the primary worker
+        self.create_worker(
+            'main_worker',
+            'user_devices.Rydberg.WindfreakSynthUSB3.blacs_workers.WindfreakSynthUSB3Worker',                    
+            {
+                'com_port': self.com_port,
+            },
+        )
+
+        self.primary_worker = 'main_worker'
+
+    # determines to only work depending on state of blacs (1 = working, 0 = buffering)
+    MODE_MANUAL = 1
+    @define_state(MODE_MANUAL,True)  
+    def on_click(self, btn):
+        """On a button press, send the corresponding textbox contents to the Windfreak
+        Args:
+            btn ([type]): which of the buttons were pressed
+        """
+        self.logger.debug('entering Windfreak button method')
+        command_list = []
+
+        # if the gated sine button was pressed ...
+        if "gated sine" in btn.text():
+            # try to get the float value from the textbox, check to see if the contents are a float, then set the DDS channel
+            try:
+                set_freq = float(self.freq_textbox["gated_sine"].text())
+                set_amp = float(self.amp_textbox["gated_sine"].text())
+                set_off = float(self.offset_textbox["gated_sine"].text())
+
+
+            except:
+                print("PLEASE ENTER VALID FLOATS")
+                self.logger.debug("PLEASE ENTER VALID FLOATS")
+                # exit function
+                return
+
+            """
+            command_list.append(r':OUTP OFF')
+            command_list.append(r':FUNC SIN')
+            command_list.append(r':VOLT %.4f V' % set_amp)  # Vpp
+            command_list.append(r':FREQ %.4f' % set_freq)  # Hz
+            command_list.append(r':VOLT:OFFS %.4f V' % set_off) # Volts
+            command_list.append(r':TRIG:SOUR EXT')
+            command_list.append(r':TRIG:DEL MIN')
+            command_list.append(r':TRIG:SLOP POS')
+            command_list.append(r':OUTP:LOAD INF')
+            command_list.append(r':BURS:STAT ON')
+            command_list.append(r':BURS:MODE GAT')
+            command_list.append(r':BURS:GATE:POL NORM')
+            command_list.append(r':OUTP ON')
+            """
+            
+
+            error_output = yield(self.queue_work('main_worker','send_commands', command_list, self.RS_232))
+
+            #self.Windfreak_error_message_contents.setTest(error_output)
+            return

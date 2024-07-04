@@ -1,0 +1,53 @@
+from blacs.device_base_class import DeviceTab, define_state
+from qtutils.qt.QtWidgets import (QVBoxLayout, QGridLayout, QLabel, QLineEdit, 
+                                  QPushButton, QGroupBox)
+from qtutils.qt.QtCore import Qt
+
+class WindfreakSynthUSB3Tab(DeviceTab):
+    def initialise_GUI(self):
+        # pull the layout of the tab so that we can place widgets in it
+        layout = self.get_tab_layout()
+
+        # Get properties from connection table
+        device = self.settings['connection_table'].find_by_name(self.device_name)
+        self.com_port = device.properties['com_port']
+        # other devices to include: baud_rate, device_id, specified IP protocol like RS_232
+
+        # Create widgets
+        self.command_textbox = QLineEdit()
+        self.send_button = QPushButton("Send Command")
+
+        # Create layout
+        controls_layout = QGridLayout()
+        controls_layout.addWidget(QLabel("Command:"), 0, 0)
+        controls_layout.addWidget(self.command_textbox, 0, 1)
+        controls_layout.addWidget(self.send_button, 1, 0, 1, 2)
+
+        # Add to main layout
+        layout.addLayout(controls_layout)
+
+        # Connect button to function
+        self.send_button.clicked.connect(self.on_send_command)
+
+        # Error message display
+        self.error_label = QLabel("Status: No errors")
+        layout.addWidget(self.error_label)
+
+    MODE_MANUAL = 1
+    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
+    def on_send_command(self, *args, **kwargs):
+        command = self.command_textbox.text()
+        if command:
+            results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
+            self.error_label.setText(f"Status: Command sent - Response: {results}")
+        else:
+            self.error_label.setText("Status: No command entered")
+
+    def initialise_workers(self):
+        worker_initialisation_kwargs = {'com_port': self.com_port}
+        self.create_worker(
+            'main_worker',
+            'user_devices.Rydberg.WindfreakSynthUSB3.blacs_workers.WindfreakSynthUSB3Worker',
+            worker_initialisation_kwargs,
+        )
+        self.primary_worker = 'main_worker'

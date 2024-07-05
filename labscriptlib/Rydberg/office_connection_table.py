@@ -24,8 +24,6 @@ def cxn_table():
         name='pulseblaster',
         board_number=0
     )
-
-    """
     ClockLine(
          name='ni_6738_clk',
          pseudoclock=pulseblaster.pseudoclock,
@@ -39,7 +37,6 @@ def cxn_table():
          MAX_name = "Dev1"
     )
 
-    """
     
     # WindfreakSynthUSB3 device
     WindfreakSynthUSB3(

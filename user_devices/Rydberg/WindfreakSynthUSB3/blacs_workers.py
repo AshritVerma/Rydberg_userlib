@@ -153,6 +153,7 @@ class WindfreakSynthUSB3Worker(Worker):
         # self.device_name = device_name
 
         # From the H5 sequence file, get the sequence we want programmed into AWG and command it
+        start_time = time.time()
         with h5py.File(h5_file_path, 'r') as hdf5_file:
             
             devices = hdf5_file['devices'][device_name]
@@ -162,7 +163,10 @@ class WindfreakSynthUSB3Worker(Worker):
 
             self.send_commands(command_list)
 
-
+        end_time = time.time()
+        transition_duration = end_time - start_time
+        print(f"{self.__class__.__name__} transition_to_buffered duration: {transition_duration:.3f} seconds")
+        
         final_values = {}
         return final_values
 
@@ -171,6 +175,12 @@ class WindfreakSynthUSB3Worker(Worker):
         # Called when the shot has finished , the device should
         # be placed back into manual mode
         # return True on success
+        start_time = time.time()
+        end_time = time.time()
+        transition_duration = end_time - start_time
+        print(f"{self.__class__.__name__} transition_to_manual duration for koheron: {transition_duration:.3f} seconds")
+        
+
         return True
 
     def abort_transition_to_buffered ( self ):

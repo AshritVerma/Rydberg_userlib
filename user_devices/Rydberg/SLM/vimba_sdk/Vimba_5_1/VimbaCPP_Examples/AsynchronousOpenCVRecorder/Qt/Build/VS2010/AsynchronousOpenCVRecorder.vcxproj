@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{58DAA461-2C1E-4EAF-9C7A-5DD87DF17640}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Build\VS2010\Examples.props" />
+    <Import Project="..\..\..\..\Build\VS2010\Qt.props" />
+    <Import Project="..\..\..\..\Build\VS2010\ImageTransform.props" />
+    <Import Project="..\..\..\..\Build\VS2010\OpenCV.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Build\VS2010\Examples.props" />
+    <Import Project="..\..\..\..\Build\VS2010\Qt.props" />
+    <Import Project="..\..\..\..\Build\VS2010\ImageTransform.props" />
+    <Import Project="..\..\..\..\Build\VS2010\OpenCV.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Build\VS2010\Examples.props" />
+    <Import Project="..\..\..\..\Build\VS2010\Qt.props" />
+    <Import Project="..\..\..\..\Build\VS2010\ImageTransform.props" />
+    <Import Project="..\..\..\..\Build\VS2010\OpenCV.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Build\VS2010\Examples.props" />
+    <Import Project="..\..\..\..\Build\VS2010\Qt.props" />
+    <Import Project="..\..\..\..\Build\VS2010\ImageTransform.props" />
+    <Import Project="..\..\..\..\Build\VS2010\OpenCV.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Platform)\$(Configuration)\tmp\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Platform)\$(Configuration)\tmp\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Platform)\$(Configuration)\tmp\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)$(Platform)\$(Configuration)\tmp\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.\GeneratedFiles\$(ConfigurationName);..\..\Source;..\..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>VimbaCPP.lib;VimbaImageTransform.lib;qtmaind.lib;QtCored4.lib;QtGuid4.lib;opencv_core300d.lib;opencv_videoio300d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>%(Command)
+if "$(ConfigurationName)"=="Debug" goto COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300.dll" "$(TargetDir)" /Y
+goto END
+:COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300d.dll" "$(TargetDir)" /Y
+:END  </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy OpenCV dlls from $(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_x64;_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.\GeneratedFiles\$(ConfigurationName);..\..\Source;..\..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>VimbaCPP.lib;VimbaImageTransform.lib;qtmaind.lib;QtCored4.lib;QtGuid4.lib;opencv_core300d.lib;opencv_videoio300d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>%(Command)
+if "$(ConfigurationName)"=="Debug" goto COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300.dll" "$(TargetDir)" /Y
+goto END
+:COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300d.dll" "$(TargetDir)" /Y
+:END  </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy OpenCV dlls from $(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.\GeneratedFiles\$(ConfigurationName);..\..\Source;..\..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>VimbaCPP.lib;VimbaImageTransform.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;opencv_core300.lib;opencv_videoio300.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>%(Command)
+if "$(ConfigurationName)"=="Debug" goto COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300.dll" "$(TargetDir)" /Y
+goto END
+:COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300d.dll" "$(TargetDir)" /Y
+:END  </Command>
+      <Message>Copy OpenCV dlls from $(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_x64;NDEBUG;QT_NO_DEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.\GeneratedFiles\$(ConfigurationName);..\..\Source;..\..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>VimbaCPP.lib;VimbaImageTransform.lib;qtmain.lib;QtCore4.lib;QtGui4.lib;opencv_core300.lib;opencv_videoio300.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>%(Command)
+if "$(ConfigurationName)"=="Debug" goto COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300.dll" "$(TargetDir)" /Y
+goto END
+:COPYDEBUG
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_core300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_videoio300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgcodecs300d.dll" "$(TargetDir)" /Y
+xcopy "$(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\opencv_imgproc300d.dll" "$(TargetDir)" /Y
+:END  </Command>
+      <Message>Copy OpenCV dlls from $(OPENCV_INSTALL_DIR)\$(OpenCVPlatformName)\$(OpenCVToolsetName)\bin\</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\ApiController.cpp" />
+    <ClCompile Include="..\..\Source\AsynchronousOpenCVRecorder.cpp" />
+    <ClCompile Include="..\..\Source\CameraObserver.cpp" />
+    <ClCompile Include="..\..\Source\FrameObserver.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_AsynchronousOpenCVRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CameraObserver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FrameObserver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_OpenCVVideoRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_AsynchronousOpenCVRecorder.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\main.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_AsynchronousOpenCVRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CameraObserver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FrameObserver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_OpenCVVideoRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Source\AsynchronousOpenCVRecorder.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing AsynchronousOpenCVRecorder.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing AsynchronousOpenCVRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing AsynchronousOpenCVRecorder.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing AsynchronousOpenCVRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -DNDEBUG -DQT_NO_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Source\res\AsynchronousOpenCVRecorder.ui">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Source\res\AsynchronousOpenCVRecorder.qrc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath);..\..\Source\res\AsynchronousOpenCVRecorder.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FullPath);..\..\Source\res\AsynchronousOpenCVRecorder.png;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Rcc%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Rcc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FullPath);..\..\Source\res\AsynchronousOpenCVRecorder.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FullPath);..\..\Source\res\AsynchronousOpenCVRecorder.png;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Rcc%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Rcc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Common\ErrorCodeToMessage.h" />
+    <ClInclude Include="..\..\..\..\Common\StreamSystemInfo.h" />
+    <ClInclude Include="..\..\Source\ApiController.h" />
+    <CustomBuild Include="..\..\Source\FrameObserver.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -DNDEBUG -DQT_NO_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Source\CameraObserver.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -DNDEBUG -DQT_NO_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL  "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Source\OpenCVVideoRecorder.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing OpenCVVideoRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL "-I$(OPENCV_INSTALL_DIR)\include" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing OpenCVVideoRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -D_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL "-I$(OPENCV_INSTALL_DIR)\include" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing OpenCVVideoRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL "-I$(OPENCV_INSTALL_DIR)\include" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing OpenCVVideoRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DWIN32 -D_x64 -DNDEBUG -DQT_NO_DEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_DLL "-I$(OPENCV_INSTALL_DIR)\include" "-I.\GeneratedFiles" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I.\..\..\Source" "-I.\..\..\..\.." "-I.\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I.\..\..\..\..\..\Externals\AVTImageTransform\UniTransform\interface" "-I$(QTDIR)\include\QtSvg" "-I$(QTDIR)\include" "-I$(QTDIR)\include\qtmain" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtTest" "-I.\..\..\..\.." "-I.\..\..\..\..\.." "-I.\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\..\Externals\VimbaC" "-I.\..\..\..\..\Externals\VimbaC\Externals\GIK\Externals\LLK\Externals\tinyxml"</Command>
+    </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_AsynchronousOpenCVRecorder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Source\res\AsynchronousOpenCVRecorder.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties UicDir=".\GeneratedFiles" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" RccDir=".\GeneratedFiles" lupdateOnBuild="0" lupdateOptions="" lreleaseOptions="" QtVersion_x0020_Win32="$(DefaultQtVersion)" QtVersion_x0020_x64="$(DefaultQtVersion)" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

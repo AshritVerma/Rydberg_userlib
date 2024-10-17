@@ -20,22 +20,22 @@ def cxn_table():
     # Primary pseudoclock
     #DummyPseudoclock(name='dummy_pseudoclock')
 
-    PulseBlasterESRPro500(
-        name='pulseblaster',
-        board_number=0
-    )
-    ClockLine(
-         name='ni_6738_clk',
-         pseudoclock=pulseblaster.pseudoclock,
-         connection='flag 0',
-    )
+    # PulseBlasterESRPro500(
+    #     name='pulseblaster',
+    #     board_number=0
+    # )
+    # ClockLine(
+    #      name='ni_6738_clk',
+    #      pseudoclock=pulseblaster.pseudoclock,
+    #      connection='flag 0',
+    # )
 
-    NI_PCIe_6738(
-         name="ni_6738", 
-         parent_device=ni_6738_clk, 
-         clock_terminal = "/AO_32/PFI0", 
-         MAX_name = "Dev1"
-    )
+    # NI_PCIe_6738(
+    #      name="ni_6738", 
+    #      parent_device=ni_6738_clk, 
+    #      clock_terminal = "/AO_32/PFI0", 
+    #      MAX_name = "Dev1"
+    # )
 
     
     # WindfreakSynthUSB3 device
@@ -43,15 +43,15 @@ def cxn_table():
         name='synthusb3',
         parent_device=None,
         #parent_device=pulseblaster_0.direct_outputs,
-        com_port=6  # Changed to string 'COM6' instead of integer 6
+        com_port=5  # Changed to string 'COM6' instead of integer 6
     )
 
-    KoheronCTL200(
-        name='ctl200',
-        parent_device=None,
-        com_port=7,
-        #current_limit = #in mA
-    )
+    # KoheronCTL200(
+    #     name='ctl200',
+    #     parent_device=None,
+    #     com_port=7,
+    #     #current_limit = #in mA
+    # )
        
 
     # Removed other devices not in use:

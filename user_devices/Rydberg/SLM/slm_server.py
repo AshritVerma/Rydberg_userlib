@@ -24,7 +24,7 @@ import cv2
 
 """
 import asyncio
-
+import msgpack
 """idea #4: numpy is faster for array operations
 import numpy as np
 # replace list operations with numpy operations, if possible
@@ -65,14 +65,6 @@ n_items = 3
 rand_kernel1 = np.random.rand(n_items)
 rand_kernel2 = np.random.rand(n_items)
 
-"""
-In the slm_server.py file, you would replace the existing main loop with an asynchronous version. Here's how you can restructure the file to incorporate the async def handle_client function:
-pythonCopyimport asyncio
-import socket
-import pickle
-# ... other imports ...
-
-# ... existing command_dict and other global variables ...
 
 async def handle_client(reader, writer):
     addr = writer.get_extra_info('peername')
@@ -124,9 +116,9 @@ if __name__ == '__main__':
     asyncio.run(main())
 
 print("SLM server ended")
+
+
 """
-
-
 def main():
     HOST = '192.168.10.104'  # Standard loopback interface address (localhost)
     PORT = 42069  # Port to listen on (non-privileged ports are > 1023)
@@ -166,7 +158,7 @@ def main():
                 vals = split_data[2::2]
 
                 args = [element.decode("utf-8") for element in args]
-                vals = [pickle.loads(val) for val in vals]
+                vals = [msgpack.packb(val) for val in vals]
 
                 # save arguments to functions as a dictionary
                 kwargs = dict(zip(args, vals))
@@ -354,3 +346,4 @@ if __name__ == '__main__':
     main()
 
 print("SLM server ended")
+"""

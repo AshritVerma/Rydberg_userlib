@@ -3,6 +3,7 @@ from qtutils.qt.QtWidgets import (QVBoxLayout, QGridLayout, QLabel, QLineEdit,
                                   QPushButton, QGroupBox, QComboBox, QDoubleSpinBox, QTextEdit)
 from qtutils.qt.QtCore import Qt
 from user_devices.Rydberg.WindfreakSynthUSB3.labscript_devices import WindfreakSynthUSB3
+from qtutils import inmain_decorator
 
 class WindfreakSynthUSB3Tab(DeviceTab):
     def initialise_GUI(self):
@@ -94,11 +95,11 @@ class WindfreakSynthUSB3Tab(DeviceTab):
         sweep_layout.addWidget(self.set_sweep_button, 4, 0, 1, 2)
 
         self.run_sweep_button = QPushButton("Run Single Sweep")
-        self.run_sweep_button.clicked.connect(lambda: self.on_run_sweep('run_sweep', False))
+        self.run_sweep_button.clicked.connect(lambda: self.on_run_sweep(False))
         sweep_layout.addWidget(self.run_sweep_button, 5, 0)
 
         self.run_cont_sweep_button = QPushButton("Run Continuous Sweep")
-        self.run_cont_sweep_button.clicked.connect(lambda: self.on_run_sweep('run_sweep', True))
+        self.run_cont_sweep_button.clicked.connect(lambda: self.on_run_sweep(True))
         sweep_layout.addWidget(self.run_cont_sweep_button, 5, 1)
 
         self.stop_sweep_button = QPushButton("Stop Sweep")
@@ -159,9 +160,18 @@ class WindfreakSynthUSB3Tab(DeviceTab):
         layout.addWidget(self.status_display)
 
     MODE_MANUAL = 1
+
+    @inmain_decorator()
+    def get_spinbox_value(self, spinbox):
+        return spinbox.value()
+
+    @inmain_decorator()
+    def get_combobox_index(self, combobox):
+        return combobox.currentIndex()
+
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_set_frequency(self, *args):
-        freq = self.freq_spinbox.value()
+        freq = self.get_spinbox_value(self.freq_spinbox)
         self.device.set_frequency(freq)
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
@@ -169,8 +179,7 @@ class WindfreakSynthUSB3Tab(DeviceTab):
 
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_set_power(self, *args):
-        power = self.power_spinbox.value()
-        
+        power = self.get_spinbox_value(self.power_spinbox)
         self.device.set_power(power)
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
@@ -178,26 +187,36 @@ class WindfreakSynthUSB3Tab(DeviceTab):
 
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_set_output(self, *args):
-        state = self.output_combo.currentIndex() == 1
-        
+        state = self.get_combobox_index(self.output_combo) == 1
         self.device.enable_output(state)
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
         self.update_status(f"Status: Output {'enabled' if state else 'disabled'} - Response: {results}")
 
-
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_set_reference(self, *args):
-        source = 'internal' if self.ref_combo.currentIndex() == 1 else 'external'
-        
+        index = self.get_combobox_index(self.ref_combo)
+        source = 'internal' if index == 1 else 'external'
         self.device.set_reference(source)
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
         self.update_status(f"Status: Reference set to {source} - Response: {results}")
 
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
-    def on_run_sweep(self, continuous, *args):
+    def on_set_sweep(self, *args):
+        start = self.get_spinbox_value(self.start_freq_spinbox)
+        stop = self.get_spinbox_value(self.stop_freq_spinbox)
+        step = self.get_spinbox_value(self.step_size_spinbox)
+        time = self.get_spinbox_value(self.step_time_spinbox) / 1000  # Convert ms to s
         
+        self.device.set_sweep(start, stop, step, time)
+        commands = self.device.command_list[-4:]  # Assuming set_sweep adds 4 commands
+        results = yield(self.queue_work(self.primary_worker, 'send_commands', commands))
+        self.update_status(f"Status: Sweep parameters set - Response: {results}")
+        self.device.command_list.clear()  # Clear the command list after execution
+
+    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
+    def on_run_sweep(self, continuous, *args):
         self.device.run_sweep(continuous)
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
@@ -206,11 +225,28 @@ class WindfreakSynthUSB3Tab(DeviceTab):
 
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_stop_sweep(self, *args):
-        
         self.device.stop_sweep()
         command = self.device.command_list[-1]
         results = yield(self.queue_work(self.primary_worker, 'send_commands', [command]))
         self.update_status(f"Status: Sweep stopped - Response: {results}")
+
+    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
+    def on_set_am_modulation(self, *args):
+        freq = yield(self.get_spinbox_value(self.am_freq_spinbox))
+        on_time = yield(self.get_spinbox_value(self.am_ontime_spinbox)) / 100  # Convert percentage to ratio
+        self.device.set_am_modulation(freq, on_time)
+        commands = self.device.command_list[-2:]  # Assuming set_am_modulation adds 2 commands
+        results = yield(self.queue_work(self.primary_worker, 'send_commands', commands))
+        self.update_status(f"Status: AM modulation set - Response: {results}")
+
+    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
+    def on_set_fm_modulation(self, *args):
+        freq = yield(self.get_spinbox_value(self.fm_freq_spinbox))
+        deviation = yield(self.get_spinbox_value(self.fm_dev_spinbox))
+        self.device.set_fm_modulation(freq, deviation)
+        commands = self.device.command_list[-2:]  # Assuming set_fm_modulation adds 2 commands
+        results = yield(self.queue_work(self.primary_worker, 'send_commands', commands))
+        self.update_status(f"Status: FM modulation set - Response: {results}")
 
     @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
     def on_save_settings(self, *args):
@@ -220,32 +256,11 @@ class WindfreakSynthUSB3Tab(DeviceTab):
         self.update_status(f"Status: Settings saved to EEPROM - Response: {results}")
         self.device.command_list.clear()  # Clear the command list after execution
 
-    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
-    def on_set_sweep(self, *args):
-        start = self.start_freq_spinbox.value()
-        stop = self.stop_freq_spinbox.value()
-        step = self.step_size_spinbox.value()
-        time = self.step_time_spinbox.value() / 1000  # Convert ms to s
-        
-        self.device.set_sweep(start, stop, step, time)
-        commands = self.device.command_list[-4:]  # Assuming set_sweep adds 4 commands
-        results = yield(self.queue_work(self.primary_worker, 'send_commands', commands))
-        self.update_status(f"Status: Sweep parameters set - Response: {results}")
-        self.device.command_list.clear()  # Clear the command list after execution
-
-    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
-    def on_set_am_modulation(self, *args):
-        freq = self.am_freq_spinbox.value()
-        on_time = self.am_ontime_spinbox.value() / 100  # Convert percentage to ratio
-        yield(self.queue_work(self.primary_worker, 'set_am_modulation', freq, on_time))
-        self.update_status("Status: AM modulation set")
-
-    @define_state(MODE_MANUAL, queue_state_indefinitely=True, delete_stale_states=True)
-    def on_set_fm_modulation(self, *args):
-        freq = self.fm_freq_spinbox.value()
-        deviation = self.fm_dev_spinbox.value()
-        yield(self.queue_work(self.primary_worker, 'set_fm_modulation', freq, deviation))
-        self.update_status("Status: FM modulation set")
+    @inmain_decorator()
+    def update_status(self, message):
+        self.status_display.append(message)
+        self.status_display.ensureCursorVisible()
+        print(f"BLACS WindfreakSynthUSB3 Status: {message}")  # This will show in the BLACS terminal
 
     def initialise_workers(self):
         worker_initialisation_kwargs = {'com_port': self.com_port}
@@ -255,8 +270,3 @@ class WindfreakSynthUSB3Tab(DeviceTab):
             worker_initialisation_kwargs,
         )
         self.primary_worker = 'main_worker'
-    
-    def update_status(self, message):
-        self.status_display.append(message)
-        self.status_display.ensureCursorVisible()
-        print(f"BLACS WindfreakSynthUSB3 Status: {message}")  # This will show in the BLACS terminal
